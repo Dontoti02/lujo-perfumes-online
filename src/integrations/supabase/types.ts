@@ -14,155 +14,7 @@ export type Database = {
   }
   public: {
     Tables: {
-      comites: {
-        Row: {
-          created_at: string
-          descripcion: string | null
-          id: string
-          nombre: string
-        }
-        Insert: {
-          created_at?: string
-          descripcion?: string | null
-          id?: string
-          nombre: string
-        }
-        Update: {
-          created_at?: string
-          descripcion?: string | null
-          id?: string
-          nombre?: string
-        }
-        Relationships: []
-      }
-      informes_transparencia: {
-        Row: {
-          anio: number
-          created_at: string
-          fecha_publicacion: string
-          id: string
-          mes: number
-          publicado_por: string | null
-          resumen_gastos: number
-          resumen_ingresos: number
-          saldo_final: number
-          url_documento: string | null
-        }
-        Insert: {
-          anio: number
-          created_at?: string
-          fecha_publicacion: string
-          id?: string
-          mes: number
-          publicado_por?: string | null
-          resumen_gastos: number
-          resumen_ingresos: number
-          saldo_final: number
-          url_documento?: string | null
-        }
-        Update: {
-          anio?: number
-          created_at?: string
-          fecha_publicacion?: string
-          id?: string
-          mes?: number
-          publicado_por?: string | null
-          resumen_gastos?: number
-          resumen_ingresos?: number
-          saldo_final?: number
-          url_documento?: string | null
-        }
-        Relationships: []
-      }
-      perfiles: {
-        Row: {
-          id: string
-          id_comite: string | null
-          nombre_completo: string | null
-          rol: string
-          updated_at: string
-        }
-        Insert: {
-          id: string
-          id_comite?: string | null
-          nombre_completo?: string | null
-          rol?: string
-          updated_at?: string
-        }
-        Update: {
-          id?: string
-          id_comite?: string | null
-          nombre_completo?: string | null
-          rol?: string
-          updated_at?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "perfiles_id_comite_fkey"
-            columns: ["id_comite"]
-            isOneToOne: false
-            referencedRelation: "comites"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      transacciones: {
-        Row: {
-          categoria_gasto: Database["public"]["Enums"]["categoria_gasto"] | null
-          categoria_ingreso:
-            | Database["public"]["Enums"]["categoria_ingreso"]
-            | null
-          created_at: string
-          descripcion: string | null
-          fecha: string
-          id: string
-          id_comite: string | null
-          id_usuario_registro: string | null
-          monto: number
-          tipo: Database["public"]["Enums"]["tipo_transaccion"]
-        }
-        Insert: {
-          categoria_gasto?:
-            | Database["public"]["Enums"]["categoria_gasto"]
-            | null
-          categoria_ingreso?:
-            | Database["public"]["Enums"]["categoria_ingreso"]
-            | null
-          created_at?: string
-          descripcion?: string | null
-          fecha: string
-          id?: string
-          id_comite?: string | null
-          id_usuario_registro?: string | null
-          monto: number
-          tipo: Database["public"]["Enums"]["tipo_transaccion"]
-        }
-        Update: {
-          categoria_gasto?:
-            | Database["public"]["Enums"]["categoria_gasto"]
-            | null
-          categoria_ingreso?:
-            | Database["public"]["Enums"]["categoria_ingreso"]
-            | null
-          created_at?: string
-          descripcion?: string | null
-          fecha?: string
-          id?: string
-          id_comite?: string | null
-          id_usuario_registro?: string | null
-          monto?: number
-          tipo?: Database["public"]["Enums"]["tipo_transaccion"]
-        }
-        Relationships: [
-          {
-            foreignKeyName: "transacciones_id_comite_fkey"
-            columns: ["id_comite"]
-            isOneToOne: false
-            referencedRelation: "comites"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
@@ -171,18 +23,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      categoria_gasto:
-        | "servicios_basicos"
-        | "mantenimiento"
-        | "ayuda_social"
-        | "materiales"
-        | "eventos"
-      categoria_ingreso:
-        | "diezmo"
-        | "ofrenda"
-        | "donacion_especial"
-        | "actividad"
-      tipo_transaccion: "ingreso" | "gasto"
+      [_ in never]: never
     }
     CompositeTypes: {
       [_ in never]: never
@@ -309,21 +150,6 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {
-      categoria_gasto: [
-        "servicios_basicos",
-        "mantenimiento",
-        "ayuda_social",
-        "materiales",
-        "eventos",
-      ],
-      categoria_ingreso: [
-        "diezmo",
-        "ofrenda",
-        "donacion_especial",
-        "actividad",
-      ],
-      tipo_transaccion: ["ingreso", "gasto"],
-    },
+    Enums: {},
   },
 } as const
